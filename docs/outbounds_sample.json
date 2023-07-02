@@ -1,0 +1,49 @@
+{
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "cf5.vpn66.eu.org",
+            "port": 8080,
+            "users": [
+              {
+                "id": "c3b11744-2b20-46af-f0d4-69122be36e74",
+                "alterId": 0,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    },
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "cf5.vpn66.eu.org",
+            "port": 8080,
+            "users": [
+              {
+                "id": "c3b11744-2b20-46af-f0d4-69122be36e74",
+                "alterId": 0,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/"
+        }
+      }
+    }
+  ]
+}
