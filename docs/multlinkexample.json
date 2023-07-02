@@ -1,0 +1,166 @@
+{
+  "inbounds": [
+    {
+      "port": 8001,
+      "protocol": "socks",
+      "settings": {}
+    },
+    {
+      "port": 8002,
+      "protocol": "socks",
+      "settings": {}
+    },
+    {
+      "port": 8003,
+      "protocol": "socks",
+      "settings": {}
+    },
+    {
+      "port": 8004,
+      "protocol": "socks",
+      "settings": {}
+    },
+    {
+      "port": 8005,
+      "protocol": "socks",
+      "settings": {}
+    },
+    {
+      "port": 8006,
+      "protocol": "socks",
+      "settings": {}
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "vmess_node1.com",
+            "port": 3360,
+            "users": [
+              {
+                "id": "user_id_1",
+                "alterId": 16
+              }
+            ]
+          },
+          {
+            "address": "vmess_node2.com",
+            "port": 3360,
+            "users": [
+              {
+                "id": "user_id_2",
+                "alterId": 16
+              }
+            ]
+          },
+          {
+            "address": "vmess_node3.com",
+            "port": 3360,
+            "users": [
+              {
+                "id": "user_id_3",
+                "alterId": 16
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "ss_node1.com",
+            "port": 8388,
+            "password": "password1",
+            "method": "aes-256-gcm"
+          },
+          {
+            "address": "ss_node2.com",
+            "port": 8388,
+            "password": "password2",
+            "method": "aes-256-gcm"
+          },
+          {
+            "address": "ss_node3.com",
+            "port": 8388,
+            "password": "password3",
+            "method": "aes-256-gcm"
+          }
+        ]
+      }
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": ["8001"],
+        "outboundTag": "outbound_1"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["8002"],
+        "outboundTag": "outbound_2"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["8003"],
+        "outboundTag": "outbound_3"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["8004"],
+        "outboundTag": "outbound_4"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["8005"],
+        "outboundTag": "outbound_5"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["8006"],
+        "outboundTag": "outbound_6"
+      }
+    ]
+  },
+  "policy": {
+    "levels": {
+      "outbound": [
+        {
+          "tag": "outbound_1",
+          "level": 1
+        },
+        {
+          "tag": "outbound_2",
+          "level": 2
+        },
+        {
+          "tag": "outbound_3",
+          "level": 3
+        },
+        {
+          "tag": "outbound_4",
+          "level": 4
+        },
+        {
+          "tag": "outbound_5",
+          "level": 5
+        },
+        {
+          "tag": "outbound_6",
+          "level": 6
+        }
+      ]
+    },
+    "system": {
+      "statsOutboundUplink": true,
+      "statsOutboundDownlink": true
+    }
+  }
+}
